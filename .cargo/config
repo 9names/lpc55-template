@@ -1,0 +1,25 @@
+[target.thumbv8m.main-none-eabi]
+runner = "probe-rs run --chip LPC55S69JBD64 --protocol swd --speed 4000"
+rustflags = [
+  "-C", "link-arg=-Tlink.x",
+  "-C", "link-arg=-Tdefmt.x",
+  # these are to reduce opt-level=3's tendency to over-optimise
+  "-C", "inline-threshold=5",
+  "-C", "no-vectorize-loops",
+]
+
+[target.thumbv8m.main-none-eabihf]
+runner = "probe-rs run --chip LPC55S69JBD64 --protocol swd --speed 4000"
+rustflags = [
+  "-C", "link-arg=-Tlink.x",
+  "-C", "link-arg=-Tdefmt.x",
+  # these are to reduce opt-level=3's tendency to over-optimise
+  "-C", "inline-threshold=5",
+  "-C", "no-vectorize-loops",
+]
+
+[build]
+target = "thumbv8m.main-none-eabihf"
+
+[env]
+DEFMT_LOG = "debug"
