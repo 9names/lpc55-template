@@ -1,0 +1,42 @@
+// The format of this file is specified in https://probe.rs/docs/tools/debugger/#start-a-debug-session-with-minimum-configuration
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "preLaunchTask": "rust: cargo build",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "lpc55-project",
+            "cwd": "${workspaceFolder}",
+            "chip": "LPC55S69JBD64",
+            "connectUnderReset": false,
+            "speed": 4000,
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "resetAfterFlashing": true,
+                "haltAfterReset": true,
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "target/thumbv8m.main-none-eabihf/release/lpc55-template",
+                    "chip": "LPC55S69JBD64",
+                    // Uncomment this if you've downloaded the SVD from
+                    // https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/lpc/34207/1/LPC55S69.svd.zip
+                    // or from https://raw.githubusercontent.com/lpc55/lpc55-pac/main/svd/pack-13.0.0-LPC55S69_cm33_core0.xml
+                    // and placed it in the .vscode directory
+                    // "svdFile": "./.vscode/LPC55S69.svd",
+                    "rttEnabled": true,
+                    "options": {
+                        "env": {
+                            "DEFMT_LOG": "Info",
+                            "RUST_LOG": "Debug"
+                        }
+                    },
+                }
+            ],
+            "consoleLogLevel": "Debug", //Error, Warn, Info, Debug, Trace
+            "wireProtocol": "Swd"
+        }
+    ]
+}
