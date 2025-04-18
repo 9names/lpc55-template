@@ -8,10 +8,10 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-defmt = "0.3.0"
-defmt-rtt = "0.4.0"
-panic-probe = "0.3.1"
-lpc55-hal = "0.3.0"
+defmt = "1"
+defmt-rtt = "1"
+panic-probe = "1"
+lpc55-hal = "0.4.1"
 cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.6.15"
 # Can't update to 0.7.3 as hal depends on rtic fork
