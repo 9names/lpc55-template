@@ -4,7 +4,7 @@ rustflags = [
   "-C", "link-arg=-Tlink.x",
   "-C", "link-arg=-Tdefmt.x",
   # these are to reduce opt-level=3's tendency to over-optimise
-  "-C", "inline-threshold=5",
+  "-C", "llvm-args=--inline-threshold=5",
   "-C", "no-vectorize-loops",
 ]
 
@@ -14,7 +14,7 @@ rustflags = [
   "-C", "link-arg=-Tlink.x",
   "-C", "link-arg=-Tdefmt.x",
   # these are to reduce opt-level=3's tendency to over-optimise
-  "-C", "inline-threshold=5",
+  "-C", "llvm-args=--inline-threshold=5",
   "-C", "no-vectorize-loops",
 ]
 
